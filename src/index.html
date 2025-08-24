@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Daily - Coding Practice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <h1>🎯 Dev Daily</h1>
+            <div class="streak-display">
+                <span class="streak-count">0</span>
+                <span class="streak-label">day streak</span>
+            </div>
+        </header>
+
+        <main class="main">
+            <section class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalCompleted">0</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="currentStreak">0</div>
+                    <div class="stat-label">Current Streak</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="longestStreak">0</div>
+                    <div class="stat-label">Longest Streak</div>
+                </div>
+            </section>
+
+            <section class="projects-section">
+                <h2>Practice Projects</h2>
+                <div class="project-filters">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="html-css">HTML/CSS</button>
+                    <button class="filter-btn" data-category="react">React</button>
+                </div>
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Projects will be loaded here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

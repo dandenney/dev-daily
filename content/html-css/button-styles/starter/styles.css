@@ -1,0 +1,42 @@
+/* TODO: Implement button styles using CSS custom properties */
+
+:root {
+  /* Define your color palette and other design tokens here */
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  /* Base button styles - implement this */
+}
+
+.btn-primary {
+  /* Primary button styles - implement this */
+}
+
+.btn-secondary {
+  /* Secondary button styles - implement this */
+}
+
+.btn:hover {
+  /* Hover effects - implement this */
+}
+
+.btn:focus {
+  /* Focus indicators - implement this */
+}
+
+.btn:disabled {
+  /* Disabled state - implement this */
+}
