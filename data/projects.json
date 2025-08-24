@@ -3,12 +3,12 @@
     "id": "button-styles",
     "name": "Button Styles",
     "category": "html-css",
-    "description": "Create modern, accessible button styles with hover effects and proper theming.<br><br>Setup: <code>cd content/html-css/button-styles/starter</code>"
+    "description": "<p>Create modern, accessible button styles with hover effects and proper theming.</p> <strong>Setup:</strong> <code>cd content/html-css/button-styles/starter</code>"
   },
   {
     "id": "dom-manipulation",
     "name": "DOM Manipulation",
     "category": "javascript",
-    "description": "Learn basic DOM manipulation by adding content to HTML with JavaScript.<br><br>Setup: <code>cd content/javascript/dom-manipulation/starter</code>"
+    "description": "<p>Learn basic DOM manipulation by adding content to HTML with JavaScript.</p> <strong>Setup:</strong> <code>cd content/javascript/dom-manipulation/starter</code>"
   }
 ]

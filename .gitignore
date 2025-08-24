@@ -140,3 +140,5 @@ vite.config.ts.timestamp-*
 
 # Database - user-specific data (streaks, progress)
 data/dev-daily.db
+
+.DS_Store

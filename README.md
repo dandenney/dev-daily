@@ -4,10 +4,11 @@ A local-first daily coding practice app that helps developers maintain consisten
 
 ## Getting Started
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Start the app: `npm run dev`
-4. Open `http://localhost:3000` in your browser
+1. Clone the repository 
+2. Change directory `cd daily-dev`
+3. Install dependencies: `npm install`
+4. Start the app: `npm run dev`
+5. Open `http://localhost:3000` in your browser
 
 The app will automatically create a local database to track your progress and streaks.
 

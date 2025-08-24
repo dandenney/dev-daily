@@ -37,3 +37,28 @@ There are multiple ways to solve this challenge:
 3. Use template literals with `insertAdjacentHTML()`
 
 Choose the approach that makes the most sense to you!
+
+## Testing Guidelines
+
+This project uses automated tests to verify your solution. The tests are designed to be **result-focused**, not implementation-specific.
+
+### What the tests check:
+- ✅ An `h1` element exists in the document
+- ✅ The `h1` contains the exact text: "Adding content to HTML with JavaScript"
+- ✅ The basic HTML structure is preserved
+
+### What the tests DON'T check:
+- ❌ Which specific DOM selector you use (`.content`, `main.content`, etc.)
+- ❌ Which DOM manipulation method you choose (`appendChild`, `innerHTML`, etc.)
+- ❌ Variable names or code structure
+- ❌ Where exactly the `h1` appears (as long as it's in the document)
+
+### Why this approach?
+This testing philosophy allows you to:
+- **Learn multiple approaches** - Try different DOM manipulation techniques
+- **Focus on results** - What matters is the end result, not the specific code path
+- **Build confidence** - Your solution works if it produces the correct output
+- **Avoid frustration** - Tests won't fail due to minor implementation differences
+
+### Running tests:
+The tests run automatically when you submit your code. If they pass, your solution is correct regardless of which approach you used!

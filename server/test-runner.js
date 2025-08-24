@@ -68,29 +68,108 @@ export class TestRunner {
                 cwd: path.join(__dirname, '..'),
                 timeout: 30000 // 30 second timeout
             }, (error, stdout, stderr) => {
-                if (error) {
-                    // Check if it's a test failure vs execution error
-                    if (error.code === 1 && stdout.includes('FAILED')) {
-                        resolve({
-                            success: false,
-                            results: stdout + stderr,
-                            error: 'Some tests failed'
-                        })
+                const result = this.parseTestOutput(stdout + stderr, !!error)
+                
+                if (error && !result.hasTestResults) {
+                    // True execution error, not test failures
+                    resolve({
+                        success: false,
+                        error: 'Failed to run tests',
+                        message: 'There was an issue running your tests. Check your code and try again.',
+                        details: stderr || error.message
+                    })
+                } else if (error || result.failedTests.length > 0) {
+                    // Test failures
+                    const failedCount = result.failedTests.length
+                    const passedCount = result.passedTests
+                    const totalCount = result.totalTests
+                    
+                    let message
+                    if (failedCount === 1) {
+                        message = passedCount > 0 ? 
+                            `${passedCount}/${totalCount} tests passing - just 1 more to go! 💪` :
+                            'One test failed - you\'re close! 💪'
                     } else {
-                        resolve({
-                            success: false,
-                            error: error.message,
-                            results: stderr
-                        })
+                        message = passedCount > 0 ? 
+                            `${passedCount}/${totalCount} tests passing - ${failedCount} still need work! 💪` :
+                            `${failedCount} tests failed - keep going! 💪`
                     }
+                    
+                    resolve({
+                        success: false,
+                        ...result,
+                        message
+                    })
                 } else {
                     // All tests passed
                     resolve({
                         success: true,
-                        results: stdout
+                        ...result,
+                        message: result.totalTests === 1 ? 
+                            'Perfect! Your test is passing! 🎉' :
+                            `Excellent! All ${result.totalTests} tests are passing! 🎉`
                     })
                 }
             })
         })
+    }
+
+    parseTestOutput(output, hasErrors = false) {
+        const lines = output.split('\n')
+        
+        // Count passed tests (✓) and failed tests (×)
+        const passedCount = (output.match(/✓/g) || []).length
+        const failedCount = (output.match(/×/g) || []).length
+        
+        // Parse failed tests - look for × symbols and test names
+        const failedTests = []
+        
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim()
+            
+            if (line.includes('×') && line.includes('>')) {
+                // Extract test name after the last > and clean up ANSI codes
+                const testNameMatch = line.match(/.*> (.*)$/)
+                if (testNameMatch) {
+                    const testName = this.cleanAnsiCodes(testNameMatch[1].trim())
+                    
+                    // Look for the error message on the next line
+                    let errorMessage = 'Test failed'
+                    
+                    // Check next line for the → symbol with error details
+                    if (i + 1 < lines.length) {
+                        const nextLine = lines[i + 1].trim()
+                        if (nextLine.startsWith('→')) {
+                            errorMessage = this.cleanAnsiCodes(nextLine.replace(/^→\s*/, '').trim())
+                        }
+                    }
+                    
+                    failedTests.push({
+                        name: testName,
+                        error: errorMessage
+                    })
+                }
+            }
+        }
+        
+        const totalTests = passedCount + failedCount
+        const hasTestResults = totalTests > 0 || output.includes('Test Files') || output.includes('RUN')
+        
+        return {
+            totalTests,
+            passedTests: passedCount,
+            failedTests,
+            summary: `${passedCount}/${totalTests} tests passed`,
+            hasTestResults
+        }
+    }
+
+    cleanAnsiCodes(text) {
+        // Remove ANSI escape sequences (color codes, formatting, etc.)
+        return text
+            .replace(/\u001b\[[0-9;]*m/g, '') // Standard ANSI codes
+            .replace(/\[22m/g, '') // Specific ANSI remnant we're seeing
+            .replace(/\[2m/g, '') // Another common one
+            .trim()
     }
 }

@@ -118,23 +118,95 @@ class DevDaily {
         const project = this.projects.find(p => p.id === projectId)
         if (!project) return
 
+        // Show loading state
+        const button = document.querySelector(`button[onclick="devDaily.runTests('${projectId}')"]`)
+        const originalText = button.textContent
+        button.textContent = 'Running Tests...'
+        button.disabled = true
+
         try {
             const response = await fetch(`/api/test/${projectId}`, { method: 'POST' })
             const result = await response.json()
             
-            if (result.success) {
-                alert(`Tests passed! ✅\n${result.results}`)
-                if (project.status !== 'completed') {
-                    await this.updateProjectStatus(projectId, 'completed')
-                    await this.recordCompletion(projectId)
-                }
-            } else {
-                alert(`Tests failed ❌\n${result.error || result.results}`)
+            this.showTestResults(result, project)
+            
+            if (result.success && project.status !== 'completed') {
+                await this.updateProjectStatus(projectId, 'completed')
+                await this.recordCompletion(projectId)
             }
         } catch (error) {
             console.error('Failed to run tests:', error)
-            alert('Failed to run tests. Please try again.')
+            this.showTestResults({
+                success: false,
+                message: 'Failed to run tests. Please try again.',
+                error: 'Network or server error'
+            })
+        } finally {
+            // Restore button state
+            button.textContent = originalText
+            button.disabled = false
         }
+    }
+
+    showTestResults(result, project) {
+        // Create modal overlay
+        const modal = document.createElement('div')
+        modal.className = 'test-modal-overlay'
+        modal.innerHTML = `
+            <div class="test-modal">
+                <div class="test-modal-header">
+                    <h3>${result.success ? '🎉 Tests Passed!' : '🔍 Tests Need Work'}</h3>
+                    <button class="close-modal" onclick="this.closest('.test-modal-overlay').remove()">&times;</button>
+                </div>
+                <div class="test-modal-body">
+                    <p class="test-message">${result.message || (result.success ? 'All tests passed!' : 'Some tests failed')}</p>
+                    ${result.summary ? `<p class="test-summary">${result.summary}</p>` : ''}
+                    ${result.failedTests && result.failedTests.length > 0 ? `
+                        <div class="failed-tests">
+                            <h4>Failed Tests:</h4>
+                            <ul>
+                                ${result.failedTests.map(test => `
+                                    <li>
+                                        <strong>${test.name}</strong>
+                                        ${test.error ? `<div class="test-error">${this.formatTestError(test.error)}</div>` : ''}
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    ` : ''}
+                    ${result.details ? `<details><summary>Technical Details</summary><pre>${result.details}</pre></details>` : ''}
+                </div>
+                <div class="test-modal-footer">
+                    ${result.success ? 
+                        '<button class="btn btn-primary" onclick="this.closest(\'.test-modal-overlay\').remove()">Awesome!</button>' :
+                        '<button class="btn btn-primary" onclick="this.closest(\'.test-modal-overlay\').remove()">I\'ll fix this</button>'
+                    }
+                </div>
+            </div>
+        `
+        
+        document.body.appendChild(modal)
+        
+        // Auto-remove on background click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.remove()
+            }
+        })
+    }
+
+    formatTestError(error) {
+        // Clean up common vitest error patterns to be more user-friendly
+        return error
+            .replace(/Error: /g, '')
+            .replace(/AssertionError: /g, '')
+            .replace(/\u001b\[[0-9;]*m/g, '') // Remove any remaining ANSI codes
+            .replace(/\[22m/g, '') // Clean up specific ANSI remnants
+            .replace(/Expected.*Received.*/gs, (match) => {
+                return `<div class="assertion-error">${match}</div>`
+            })
+            .replace(/\n/g, '<br>')
+            .trim()
     }
 
     async updateProjectStatus(projectId, status) {
