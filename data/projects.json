@@ -10,5 +10,11 @@
     "name": "DOM Manipulation",
     "category": "javascript",
     "description": "<p>Learn basic DOM manipulation by adding content to HTML with JavaScript.</p> <strong>Setup:</strong> <code>cd content/javascript/dom-manipulation/starter</code>"
+  },
+  {
+    "id": "map-to-markup",
+    "name": "Map to Markup",
+    "category": "react",
+    "description": "<p>Learn basic DOM manipulation by adding content to HTML with JSX in React.</p> <strong>Setup:</strong> <code>cd content/react/map-to-markup/starter</code>"
   }
 ]

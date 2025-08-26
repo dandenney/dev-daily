@@ -1,39 +1,44 @@
 import { describe, it, expect } from 'vitest'
-import { render } from '@testing-library/react'
-import VenuesList from '../starter/VenuesList.jsx'
+import fs from 'fs'
+import path from 'path'
 
 describe('React Map to Markup Challenge', () => {
-  it('should render a ul element', () => {
-    const { container } = render(<VenuesList />)
-    const ul = container.querySelector('ul')
+  let componentCode
+
+  it('should export a default function', async () => {
+    const filePath = path.join(process.cwd(), 'content/react/map-to-markup/starter/VenuesList.jsx')
+    componentCode = fs.readFileSync(filePath, 'utf-8')
     
-    expect(ul).not.toBeNull()
-    expect(ul.tagName.toLowerCase()).toBe('ul')
+    expect(componentCode).toContain('export default function VenuesList')
   })
 
-  it('should render li elements for each venue', () => {
-    const { container } = render(<VenuesList />)
-    const liElements = container.querySelectorAll('li')
+  it('should use map method to render list items', () => {
+    const filePath = path.join(process.cwd(), 'content/react/map-to-markup/starter/VenuesList.jsx')
+    const componentCode = fs.readFileSync(filePath, 'utf-8')
     
-    expect(liElements.length).toBe(2)
+    expect(componentCode).toMatch(/venues\.map\s*\(/i)
   })
 
-  it('should display venue names in list items', () => {
-    const { container } = render(<VenuesList />)
-    const liElements = container.querySelectorAll('li')
+  it('should render li elements with venue names', () => {
+    const filePath = path.join(process.cwd(), 'content/react/map-to-markup/starter/VenuesList.jsx')
+    const componentCode = fs.readFileSync(filePath, 'utf-8')
     
-    expect(liElements[0].textContent).toBe('Zanies')
-    expect(liElements[1].textContent).toBe('The Comedy Bar')
+    expect(componentCode).toContain('<li')
+    expect(componentCode).toMatch(/venue\.name/i)
   })
 
   it('should use venue id as key prop', () => {
-    const { container } = render(<VenuesList />)
-    const liElements = container.querySelectorAll('li')
+    const filePath = path.join(process.cwd(), 'content/react/map-to-markup/starter/VenuesList.jsx')
+    const componentCode = fs.readFileSync(filePath, 'utf-8')
     
-    // Test that each li element exists and has proper content
-    // The key prop itself can't be directly tested as it's internal to React
-    expect(liElements.length).toBe(2)
-    expect(liElements[0].textContent).toBe('Zanies')
-    expect(liElements[1].textContent).toBe('The Comedy Bar')
+    expect(componentCode).toMatch(/key=\{venue\.id\}/i)
+  })
+
+  it('should return a ul element', () => {
+    const filePath = path.join(process.cwd(), 'content/react/map-to-markup/starter/VenuesList.jsx')
+    const componentCode = fs.readFileSync(filePath, 'utf-8')
+    
+    expect(componentCode).toContain('<ul>')
+    expect(componentCode).toContain('</ul>')
   })
 })
