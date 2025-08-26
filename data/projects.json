@@ -70,5 +70,35 @@
     "name": "Services Module Thin Slice",
     "category": "react",
     "description": "<p>Move fetch functions into services/jokes.js module and import them.</p> <strong>Setup:</strong> <code>cd content/react/services-module/starter</code>"
+  },
+  {
+    "id": "useeffect-dependencies",
+    "name": "useEffect Dependencies: Watch Two Things",
+    "category": "react",
+    "description": "<p>Toggle shows all jokes or told only. Watch both showTold and allJokes.</p> <strong>Setup:</strong> <code>cd content/react/useeffect-dependencies/starter</code>"
+  },
+  {
+    "id": "initial-value-pitfall",
+    "name": "Initial Value Pitfall: Avoid undefined.map",
+    "category": "react",
+    "description": "<p>Fix broken code by setting a safe initial value for state.</p> <strong>Setup:</strong> <code>cd content/react/initial-value-pitfall/starter</code>"
+  },
+  {
+    "id": "conditional-render-empty",
+    "name": "Conditional Render: Empty State",
+    "category": "react",
+    "description": "<p>Show 'Add your first one-liner' if no jokes, otherwise render list.</p> <strong>Setup:</strong> <code>cd content/react/conditional-render-empty/starter</code>"
+  },
+  {
+    "id": "inline-form-submit",
+    "name": "Inline Form Submit + Prevent Default",
+    "category": "react",
+    "description": "<p>Submit calls onAdd(text), then clears. Prevent default behavior.</p> <strong>Setup:</strong> <code>cd content/react/inline-form-submit/starter</code>"
+  },
+  {
+    "id": "keys-repeated-element",
+    "name": "Keys: Put It On the Repeated Element",
+    "category": "react",
+    "description": "<p>Fix the key location by moving it to the repeated element.</p> <strong>Setup:</strong> <code>cd content/react/keys-repeated-element/starter</code>"
   }
 ]
