@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 const app = express()
-const port = 3001
+const port = 7002
 
 // Initialize database and test runner
 const db = new Database()
@@ -85,5 +85,5 @@ app.get('/api/stats', (req, res) => {
 
 app.listen(port, () => {
     console.log(`🎯 Dev Daily server running at http://localhost:${port}`)
-    console.log(`📊 Frontend at http://localhost:3000`)
+    console.log(`📊 Frontend at http://localhost:7001`)
 })
