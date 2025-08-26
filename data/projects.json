@@ -15,6 +15,60 @@
     "id": "map-to-markup",
     "name": "Map to Markup",
     "category": "react",
-    "description": "<p>Learn basic DOM manipulation by adding content to HTML with JSX in React.</p> <strong>Setup:</strong> <code>cd content/react/map-to-markup/starter</code>"
+    "description": "<p>Render a list of venues as li items using JSX and map method.</p> <strong>Setup:</strong> <code>cd content/react/map-to-markup/starter</code>"
+  },
+  {
+    "id": "fragment-without-wrapper",
+    "name": "Fragment without Wrapper",
+    "category": "react",
+    "description": "<p>Return two sibling p elements without adding a div wrapper.</p> <strong>Setup:</strong> <code>cd content/react/fragment-without-wrapper/starter</code>"
+  },
+  {
+    "id": "onclick-handler-vs-inline",
+    "name": "onClick: Handler vs Inline",
+    "category": "react",
+    "description": "<p>Log 'Clicked!' using both named function and inline arrow handlers.</p> <strong>Setup:</strong> <code>cd content/react/onclick-handler-vs-inline/starter</code>"
+  },
+  {
+    "id": "usestate-counter",
+    "name": "useState 101: Counter",
+    "category": "react",
+    "description": "<p>Show Count: 0 and increment with +1 button using useState hook.</p> <strong>Setup:</strong> <code>cd content/react/usestate-counter/starter</code>"
+  },
+  {
+    "id": "controlled-input",
+    "name": "Controlled Input",
+    "category": "react",
+    "description": "<p>Capture text input in state and mirror it below in preview.</p> <strong>Setup:</strong> <code>cd content/react/controlled-input/starter</code>"
+  },
+  {
+    "id": "post-then-clear",
+    "name": "POST then Clear",
+    "category": "react",
+    "description": "<p>Save posts the joke, then clears input using mock Promise.</p> <strong>Setup:</strong> <code>cd content/react/post-then-clear/starter</code>"
+  },
+  {
+    "id": "useeffect-initial-fetch",
+    "name": "useEffect: Initial Fetch",
+    "category": "react",
+    "description": "<p>Fetch jokes on mount and render them without infinite loops.</p> <strong>Setup:</strong> <code>cd content/react/useeffect-initial-fetch/starter</code>"
+  },
+  {
+    "id": "derived-state-told-untold",
+    "name": "Derived State: Told vs Untold",
+    "category": "react",
+    "description": "<p>Split allJokes into told and untold and render each with counts.</p> <strong>Setup:</strong> <code>cd content/react/derived-state-told-untold/starter</code>"
+  },
+  {
+    "id": "refetch-after-post",
+    "name": "Re-fetch After POST",
+    "category": "react",
+    "description": "<p>After creating a joke, refresh allJokes by re-calling getAllJokes.</p> <strong>Setup:</strong> <code>cd content/react/refetch-after-post/starter</code>"
+  },
+  {
+    "id": "services-module",
+    "name": "Services Module Thin Slice",
+    "category": "react",
+    "description": "<p>Move fetch functions into services/jokes.js module and import them.</p> <strong>Setup:</strong> <code>cd content/react/services-module/starter</code>"
   }
 ]
