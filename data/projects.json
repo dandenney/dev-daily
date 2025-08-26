@@ -3,102 +3,102 @@
     "id": "button-styles",
     "name": "Button Styles",
     "category": "html-css",
-    "description": "<p>Create modern, accessible button styles with hover effects and proper theming.</p> <strong>Setup:</strong> <code>cd content/html-css/button-styles/starter</code>"
+    "description": "<p>Create modern, accessible button styles with hover effects and proper theming.</p> <strong>Setup:</strong> <code>cd content/html-css/button-styles</code>"
   },
   {
     "id": "dom-manipulation",
     "name": "DOM Manipulation",
     "category": "javascript",
-    "description": "<p>Learn basic DOM manipulation by adding content to HTML with JavaScript.</p> <strong>Setup:</strong> <code>cd content/javascript/dom-manipulation/starter</code>"
+    "description": "<p>Learn basic DOM manipulation by adding content to HTML with JavaScript.</p> <strong>Setup:</strong> <code>cd content/javascript/dom-manipulation</code>"
   },
   {
     "id": "map-to-markup",
     "name": "Map to Markup",
     "category": "react",
-    "description": "<p>Render a list of venues as li items using JSX and map method.</p> <strong>Setup:</strong> <code>cd content/react/map-to-markup/starter</code>"
+    "description": "<p>Render a list of venues as li items using JSX and map method.</p> <strong>Setup:</strong> <code>cd content/react/map-to-markup</code>"
   },
   {
     "id": "fragment-without-wrapper",
     "name": "Fragment without Wrapper",
     "category": "react",
-    "description": "<p>Return two sibling p elements without adding a div wrapper.</p> <strong>Setup:</strong> <code>cd content/react/fragment-without-wrapper/starter</code>"
+    "description": "<p>Return two sibling p elements without adding a div wrapper.</p> <strong>Setup:</strong> <code>cd content/react/fragment-without-wrapper</code>"
   },
   {
     "id": "onclick-handler-vs-inline",
     "name": "onClick: Handler vs Inline",
     "category": "react",
-    "description": "<p>Log 'Clicked!' using both named function and inline arrow handlers.</p> <strong>Setup:</strong> <code>cd content/react/onclick-handler-vs-inline/starter</code>"
+    "description": "<p>Log 'Clicked!' using both named function and inline arrow handlers.</p> <strong>Setup:</strong> <code>cd content/react/onclick-handler-vs-inline</code>"
   },
   {
     "id": "usestate-counter",
     "name": "useState 101: Counter",
     "category": "react",
-    "description": "<p>Show Count: 0 and increment with +1 button using useState hook.</p> <strong>Setup:</strong> <code>cd content/react/usestate-counter/starter</code>"
+    "description": "<p>Show Count: 0 and increment with +1 button using useState hook.</p> <strong>Setup:</strong> <code>cd content/react/usestate-counter</code>"
   },
   {
     "id": "controlled-input",
     "name": "Controlled Input",
     "category": "react",
-    "description": "<p>Capture text input in state and mirror it below in preview.</p> <strong>Setup:</strong> <code>cd content/react/controlled-input/starter</code>"
+    "description": "<p>Capture text input in state and mirror it below in preview.</p> <strong>Setup:</strong> <code>cd content/react/controlled-input</code>"
   },
   {
     "id": "post-then-clear",
     "name": "POST then Clear",
     "category": "react",
-    "description": "<p>Save posts the joke, then clears input using mock Promise.</p> <strong>Setup:</strong> <code>cd content/react/post-then-clear/starter</code>"
+    "description": "<p>Save posts the joke, then clears input using mock Promise.</p> <strong>Setup:</strong> <code>cd content/react/post-then-clear</code>"
   },
   {
     "id": "useeffect-initial-fetch",
     "name": "useEffect: Initial Fetch",
     "category": "react",
-    "description": "<p>Fetch jokes on mount and render them without infinite loops.</p> <strong>Setup:</strong> <code>cd content/react/useeffect-initial-fetch/starter</code>"
+    "description": "<p>Fetch jokes on mount and render them without infinite loops.</p> <strong>Setup:</strong> <code>cd content/react/useeffect-initial-fetch</code>"
   },
   {
     "id": "derived-state-told-untold",
     "name": "Derived State: Told vs Untold",
     "category": "react",
-    "description": "<p>Split allJokes into told and untold and render each with counts.</p> <strong>Setup:</strong> <code>cd content/react/derived-state-told-untold/starter</code>"
+    "description": "<p>Split allJokes into told and untold and render each with counts.</p> <strong>Setup:</strong> <code>cd content/react/derived-state-told-untold</code>"
   },
   {
     "id": "refetch-after-post",
     "name": "Re-fetch After POST",
     "category": "react",
-    "description": "<p>After creating a joke, refresh allJokes by re-calling getAllJokes.</p> <strong>Setup:</strong> <code>cd content/react/refetch-after-post/starter</code>"
+    "description": "<p>After creating a joke, refresh allJokes by re-calling getAllJokes.</p> <strong>Setup:</strong> <code>cd content/react/refetch-after-post</code>"
   },
   {
     "id": "services-module",
     "name": "Services Module Thin Slice",
     "category": "react",
-    "description": "<p>Move fetch functions into services/jokes.js module and import them.</p> <strong>Setup:</strong> <code>cd content/react/services-module/starter</code>"
+    "description": "<p>Move fetch functions into services/jokes.js module and import them.</p> <strong>Setup:</strong> <code>cd content/react/services-module</code>"
   },
   {
     "id": "useeffect-dependencies",
     "name": "useEffect Dependencies: Watch Two Things",
     "category": "react",
-    "description": "<p>Toggle shows all jokes or told only. Watch both showTold and allJokes.</p> <strong>Setup:</strong> <code>cd content/react/useeffect-dependencies/starter</code>"
+    "description": "<p>Toggle shows all jokes or told only. Watch both showTold and allJokes.</p> <strong>Setup:</strong> <code>cd content/react/useeffect-dependencies</code>"
   },
   {
     "id": "initial-value-pitfall",
     "name": "Initial Value Pitfall: Avoid undefined.map",
     "category": "react",
-    "description": "<p>Fix broken code by setting a safe initial value for state.</p> <strong>Setup:</strong> <code>cd content/react/initial-value-pitfall/starter</code>"
+    "description": "<p>Fix broken code by setting a safe initial value for state.</p> <strong>Setup:</strong> <code>cd content/react/initial-value-pitfall</code>"
   },
   {
     "id": "conditional-render-empty",
     "name": "Conditional Render: Empty State",
     "category": "react",
-    "description": "<p>Show 'Add your first one-liner' if no jokes, otherwise render list.</p> <strong>Setup:</strong> <code>cd content/react/conditional-render-empty/starter</code>"
+    "description": "<p>Show 'Add your first one-liner' if no jokes, otherwise render list.</p> <strong>Setup:</strong> <code>cd content/react/conditional-render-empty</code>"
   },
   {
     "id": "inline-form-submit",
     "name": "Inline Form Submit + Prevent Default",
     "category": "react",
-    "description": "<p>Submit calls onAdd(text), then clears. Prevent default behavior.</p> <strong>Setup:</strong> <code>cd content/react/inline-form-submit/starter</code>"
+    "description": "<p>Submit calls onAdd(text), then clears. Prevent default behavior.</p> <strong>Setup:</strong> <code>cd content/react/inline-form-submit</code>"
   },
   {
     "id": "keys-repeated-element",
     "name": "Keys: Put It On the Repeated Element",
     "category": "react",
-    "description": "<p>Fix the key location by moving it to the repeated element.</p> <strong>Setup:</strong> <code>cd content/react/keys-repeated-element/starter</code>"
+    "description": "<p>Fix the key location by moving it to the repeated element.</p> <strong>Setup:</strong> <code>cd content/react/keys-repeated-element</code>"
   }
 ]

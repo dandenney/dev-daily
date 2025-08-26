@@ -5,9 +5,7 @@ export default function VenuesList() {
   ];
   return (
     <ul>
-      {venues.map((venue) => (
-        <li>{venue.name}</li>
-      ))}
+      {/* Map the venus in <li> elements */}
     </ul>
   );
 }
